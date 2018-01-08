@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #282A36;
+    color: #FFF;
+}
+
+pre {
+    font-family: 'Source Code Pro', monospace;
+    width: 45ch;
+    margin: 4em auto;
+    padding: .5em;
+    line-height: 0;
+    counter-reset: line;
+}
+
+pre span {
+    display: block;
+    line-height: 1.5rem;
+}
+
+pre span:before {
+    counter-increment: line;
+    content: counter(line);
+    display: inline-block;
+    border-right: 1px solid #999;
+    width: 3ch;
+    padding: 0 .5em;
+    margin-right: .5em;
+    color: #888;
+    text-align: right;
+}
+
+pre a {
+    text-decoration: none;
+    color: #FFF;
+}
+
+.bgreen {
+    background-color: #45FC75;
+    color: #222;
+}
+
+.fblue {
+    color: #87E9FF;
+}
+
+.fred {
+    color: #FF76C7;
+}
+
+.dotted {
+    border-bottom: 1px dotted #FFF;
+}
+
+.link {
+    color: #F6FD7A;
+    text-decoration: underline;
+}
+
+.caret {
+    animation: caret 1.5s step-end infinite;
+}
+
+@keyframes caret {
+    from,
+    to {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
