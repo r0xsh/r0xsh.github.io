@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #282A36;
+    background-color: #161616;
     color: #FFF;
 }
 
@@ -41,16 +41,16 @@ pre a {
 }
 
 .bgreen {
-    background-color: #45FC75;
-    color: #222;
+    background-color: #42be65;
+    color: #161616;
 }
 
 .fblue {
-    color: #87E9FF;
+    color: #33b1ff;
 }
 
 .fred {
-    color: #FF76C7;
+    color: #ee5396;
 }
 
 .dotted {
@@ -58,7 +58,7 @@ pre a {
 }
 
 .link {
-    color: #F6FD7A;
+    color: #ffe97b;
     text-decoration: underline;
 }
 
