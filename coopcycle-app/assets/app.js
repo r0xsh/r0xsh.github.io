@@ -18,7 +18,7 @@
 
     var url = location.href.split('#')[0].split('?')[0];
     if (location.protocol === 'file:') {
-      // No meaningful URL to hand out yet — hide the card instead of
+      // No meaningful URL to hand out yet, so hide the card instead of
       // encoding a path that only exists on this machine.
       var card = host.closest('.qr-card');
       if (card) card.style.display = 'none';
@@ -56,8 +56,8 @@
     btn.removeAttribute('href');
     btn.setAttribute('aria-disabled', 'true');
     var label = btn.querySelector('span');
-    if (label) label.textContent = 'Build not published yet';
-    if (meta) meta.textContent = 'Check back shortly — the APK is on its way.';
+    if (label) label.textContent = 'Not ready to download yet';
+    if (meta) meta.textContent = 'Check back soon. It is on its way.';
   }
 
   function checkApk() {
@@ -86,7 +86,7 @@
         var built = formatDate(res.headers.get('last-modified'));
         if (built) parts.push('built ' + built);
 
-        parts.push('Android 8.0 or newer');
+        parts.push('Android 8.0 and newer');
         meta.textContent = parts.join(' · ');
       })
       .catch(function () {
