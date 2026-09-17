@@ -1,0 +1,391 @@
+/* CoopCycle Courier — landing page
+   Palette taken from the CoopCycle app: near-black #1C1C1C, white, red accent #FF4136. */
+
+:root {
+  --ink: #1c1c1c;
+  --ink-soft: #55565a;
+  --ink-faint: #8a8b8f;
+  --paper: #ffffff;
+  --paper-sunk: #f5f4f2;
+  --line: #e2e0dd;
+  --accent: #e4202d;
+  --accent-hover: #c31a25;
+  --accent-wash: #fdeceb;
+  --radius: 14px;
+  --maxw: 68rem;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #f2f1ef;
+    --ink-soft: #b3b2b0;
+    --ink-faint: #85847f;
+    --paper: #131313;
+    --paper-sunk: #1d1d1d;
+    --line: #2f2f2f;
+    --accent: #ff4136;
+    --accent-hover: #ff6257;
+    --accent-wash: #2a1513;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { line-height: 1.2; letter-spacing: -0.02em; margin: 0; }
+p { margin: 0; }
+a { color: inherit; }
+
+main {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ---------- header ---------- */
+
+.site-header {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 1.75rem 1.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.brand-mark { width: 30px; height: 30px; fill: currentColor; flex: none; }
+
+.brand-name { font-weight: 650; letter-spacing: -0.01em; }
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-wash);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  border-radius: 999px;
+  padding: 0.18rem 0.6rem;
+}
+
+/* ---------- hero ---------- */
+
+.hero {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3.5rem 0 3rem;
+}
+
+.hero-copy { max-width: 34rem; }
+
+h1 {
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  font-weight: 700;
+}
+
+.lede {
+  margin-top: 1.1rem;
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+}
+
+.download { margin-top: 2rem; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-primary:active { transform: translateY(1px); }
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.btn-icon {
+  width: 20px; height: 20px; flex: none;
+  fill: none; stroke: currentColor; stroke-width: 2;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* set by app.js when the APK is not on the server yet */
+.btn-primary.is-unavailable {
+  background: var(--paper-sunk);
+  color: var(--ink-faint);
+  border-color: var(--line);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.file-meta {
+  margin-top: 0.85rem;
+  font-size: 0.9rem;
+  color: var(--ink-faint);
+}
+
+/* ---------- qr ---------- */
+
+.qr-card {
+  flex: none;
+  text-align: center;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper-sunk);
+}
+
+.qr {
+  width: 168px;
+  height: 168px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+}
+
+.qr svg { width: 100%; height: 100%; display: block; }
+
+.qr-caption {
+  margin-top: 0.85rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--ink-faint);
+}
+
+/* ---------- notice ---------- */
+
+.notice {
+  display: flex;
+  gap: 1rem;
+  padding: 1.35rem 1.5rem;
+  border-radius: var(--radius);
+  background: var(--accent-wash);
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+.notice-icon {
+  width: 24px; height: 24px; flex: none; margin-top: 0.2rem;
+  fill: none; stroke: var(--accent); stroke-width: 2;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+
+.notice h2 { font-size: 1.05rem; }
+.notice p { margin-top: 0.4rem; color: var(--ink-soft); font-size: 0.97rem; }
+.notice strong { color: var(--ink); }
+
+/* ---------- sections ---------- */
+
+section + section { margin-top: 4.5rem; }
+
+section > h2 {
+  font-size: 1.65rem;
+  font-weight: 680;
+  margin-bottom: 1.6rem;
+}
+
+/* ---------- screenshots ---------- */
+
+.shot-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.shot { margin: 0; }
+
+.shot img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 19;   /* matches the 1440x3040 device screenshots */
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--paper-sunk);
+}
+
+.shot figcaption {
+  margin-top: 0.7rem;
+  font-size: 0.9rem;
+  color: var(--ink-faint);
+}
+
+/* image missing -> keep the slot as a labelled placeholder */
+.shot-empty img { visibility: hidden; }
+
+.shot-empty {
+  position: relative;
+}
+
+.shot-empty::before {
+  content: "Screenshot coming soon";
+  position: absolute;
+  inset: 0 0 2.2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  background: var(--paper-sunk);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+}
+
+/* ---------- features ---------- */
+
+.feature-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.75rem 2rem;
+}
+
+.feature-grid h3 {
+  font-size: 1rem;
+  font-weight: 650;
+  padding-top: 0.9rem;
+  border-top: 2px solid var(--ink);
+}
+
+.feature-grid p {
+  margin-top: 0.45rem;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- install ---------- */
+
+.install-intro {
+  margin-top: -0.9rem;
+  margin-bottom: 1.8rem;
+  color: var(--ink-soft);
+  max-width: 44rem;
+}
+
+.steps {
+  list-style: none;
+  counter-reset: step;
+  margin: 0;
+  padding: 0;
+  max-width: 44rem;
+}
+
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 0 0 1.6rem 3.25rem;
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 650;
+  color: var(--paper);
+  background: var(--ink);
+  border-radius: 999px;
+}
+
+.steps li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: 2.4rem;
+  bottom: 0.4rem;
+  width: 1px;
+  background: var(--line);
+}
+
+.steps h3 { font-size: 1.02rem; font-weight: 650; padding-top: 0.2rem; }
+.steps p { margin-top: 0.35rem; color: var(--ink-soft); font-size: 0.95rem; }
+.steps em,
+.uninstall em { font-style: normal; color: var(--ink); font-weight: 550; }
+
+.uninstall {
+  color: var(--ink-faint);
+  font-size: 0.95rem;
+}
+
+/* ---------- footer ---------- */
+
+.site-footer {
+  max-width: var(--maxw);
+  margin: 5rem auto 0;
+  padding: 2rem 1.5rem 3rem;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.site-footer a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+.site-footer .small { margin-top: 0.35rem; font-size: 0.85rem; color: var(--ink-faint); }
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 860px) {
+  .hero { flex-direction: column; align-items: flex-start; gap: 2.25rem; padding-bottom: 2.5rem; }
+  .qr-card { align-self: center; }
+}
+
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .qr-card { display: none; }           /* already on a phone: the QR is noise */
+  .shot-row {
+    grid-auto-flow: column;
+    grid-auto-columns: 62%;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin: 0 -1.5rem;
+    padding: 0 1.5rem;
+    scrollbar-width: none;
+  }
+  .shot-row::-webkit-scrollbar { display: none; }
+  .shot { scroll-snap-align: start; }
+  .btn-primary { width: 100%; justify-content: center; }
+  section + section { margin-top: 3.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
