@@ -6,7 +6,7 @@
 
   // The APK sits next to this page. Change it here if you rename the file,
   // or point it at a full URL if you ever host the build elsewhere.
-  var APK_FILE = 'coopcycle-courier.apk';
+  var APK_FILE = 'https://github.com/r0xsh/r0xsh.github.io/releases/download/coopcycle-app/coopcycle-courier.apk';
 
   /* ----- QR code -------------------------------------------------------- */
   // Encodes this page's own address, not the APK: a courier scanning from a
